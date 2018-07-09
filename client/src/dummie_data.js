@@ -1,4 +1,4 @@
-const data = {
+const userData = {
   Xue: {
     id: 'u1',
     profile_img: 'image1',
@@ -15,7 +15,6 @@ const data = {
       },
       { name: 'Jeff',
         userId: 'u4'
-        
       }
     ],
     groups: [
@@ -26,42 +25,69 @@ const data = {
         groupId: 'g2'
       }
     ],
-    belonglings: {
-      backpacking_tent : {
+    request: {
+        Unicorn_floaty: {
+          id: 'i5',
+          name: 'unicore floaty',
+          catagrory: 'activites',
+          description: 'one person floaty',
+          photos: ['image20', 'images220'],
+          owner_name: 'Genela',
+          owner_id: 'u3',
+          status: {
+            available: 'T',
+            barrowed: {
+              user_name: 'Xue',
+              user_id: 'u1',
+              start_date: '7/15/2018',
+              return_date: '7/20/2018',
+              purpose: 'floating down Russia river'
+            }
+          }
+        }
+
+      }
+    },
+    myStuff: [
+      {
           id: 'i1',
-          name: 'Blue light weight tent',
+          name: 'Blue light weight backpacking tent',
+          catagrory: 'camping',
           description: '7lbs, REI Co-op 2 person backpacking tent',
           photos: ['image940', 'images494'],
           owner_name: 'Xue',
           owner_id: 'u1',
           status: {
-            available: 'T',
+            available: true,
             barrowed: null
           }
-        },
-        black_cocktail_dress : {
+      },
+      {
+          name: 'black_cocktail_dress',
           id: 'i2',
           name: 'black mid-length dress',
+          catagrory: 'dresses',
           description: 'size 2, lace, backless cocktail dress',
           photos: ['image290', 'images280'],
           owner_name: 'Xue',
           owner_id: 'u1',
           status: {
-            available: 'F',
+            available: false,
             barrowed: {
               user_name: 'Genela',
               user_id: 'u3',
-              barrowed_date: '7/5/2018',
+              start_date: '7/5/2018',
               return_date: '7/15/2018',
               purpose: 'friends wedding'
             }
           }
         }
-      },
-      barrowed: [
-        { green_cocktail_dress : {
-          id: 'i3',
-          name: 'black mid-length dress',
+      
+      ],
+      barrowedStuff: [
+        { id: 'i3',
+          name: 'green mid-length cocktail dress',
+          catagrory: 'dresses',
           description: 'size 2, silk, ruffle cocktail dress',
           photos: ['image262', 'images2809'],
           owner_name: 'Yao',
@@ -71,17 +97,16 @@ const data = {
             barrowed: {
               user_name: 'Xue',
               user_id: 'u1',
-              barrowed_date: '7/4/2018',
+              start_date: '7/4/2018',
               return_date: '7/15/2018',
               purpose: 'friends birthday party'
             }
           }
-        }
         },
-        { suitcase: {
-          id: 'i4',
-          name: 'Away white carry-on',
-          description: null,
+        { id: 'i4',
+          name: 'Away white carry-on suitcase',
+          catagrory: 'travel',
+          description: 'carry-on size',
           photos: ['image232', 'images29'],
           owner_name: 'Jay',
           owner_id: 'u2',
@@ -90,13 +115,14 @@ const data = {
             barrowed: {
               user_name: 'Xue',
               user_id: 'u1',
-              barrowed_date: '7/1/2018',
+              start_date: '7/1/2018',
               return_date: '7/29/2018',
               purpose: 'weekend trip to LA'
             }
           }
-        }
         },
       ]
-  }
+  
 }
+
+export default userData;
