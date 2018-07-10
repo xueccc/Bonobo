@@ -6,20 +6,25 @@ function BarrowedStuff(props) {
     ? (
       <div>
         <h3>Barrowed Stuff</h3>
-        <ul>
+        
           { 
             props.barrowedStuff.map((item) => {
              return (
              <div className="item" key={item.id}>
-                <li>barrow date: {item.status.barrowed.start_date} to {item.status.barrowed.return_date}</li>    
+             <ul>
+                <li>
+                  barrowed dates: {item.status.barrowed.start_date} to {item.status.barrowed.return_date}
+                  <button className="removeBtn" type="submit">Return item</button>
+                </li>    
                 <li>{item.name}</li>
                 <li>{item.description}</li>  
                 <li>owner: {item.owner_name}</li>
+              </ul>
               </div>
              )
             })
           }
-        </ul>
+  
       </div>
     )
     : null

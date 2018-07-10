@@ -1,0 +1,38 @@
+db.userData.insert({
+    user_name: 'Xue',
+    password: 
+    profile_img: 'image1',
+    userId: 'u1',
+    karma_rating: 2,
+    friends: [
+      { name: 'Jay',
+        userId: 'u2'
+      },
+      { name: 'Genela',
+        userId: 'u3'
+      },
+      { name: 'Yao',
+        userId: 'u4'
+      },
+      { name: 'Jeff',
+        userId: 'u4'
+      }
+    ],
+    groups: [
+      { name: 'camping gears',
+        groupId: 'g1'
+      },
+      { name: 'dresses',
+        groupId: 'g2'
+      }
+    ],
+    requests: [
+    
+      ],
+    myStuff: [
+     
+      ],
+      barrowedStuff: [
+       
+      ]
+});

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NagivationBar extends React.Component {
+class NavigationBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,20 +11,25 @@ class NagivationBar extends React.Component {
   
   render() {
     return (
-      <div> 
-        {
-          this.state.buttons.map((btn, key) => {
-            return (
-              this.props.views[btn[0]]
-              ? null
-              : <button type="submit" className={btn[0]} onClick={this.props.handleClick} key={btn[0]}>{btn[1]}</button>
-            )
-          })
-        }
-      </div>
+      this.props.views.viewLogin
+      ? null
+      : (
+        <div className="navigationArea"> 
+          {
+            this.state.buttons.map((btn, key) => {
+              return (
+                this.props.views[btn[0]]
+                ? null
+                : <button type="submit" className={btn[0]} onClick={this.props.handleClick} key={btn[0]}>{btn[1]}</button>
+              )
+            })
+          }
+        </div>
         )
-      }
+       
+      )
+    }
   
 }
 
-export default NagivationBar;
+export default NavigationBar;
