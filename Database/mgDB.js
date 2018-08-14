@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/bonoboApp', (err, result) => {
   console.log('connected to mongoDB');
 });
+mongoose.set('debug',true)
 
 var db = mongoose.connection;
 db.on('error', () => console.log('mongodb connection error'));
@@ -63,6 +64,8 @@ const usersData = mongoose.model('usersData', userSchema);
 
 
 function queryUser(userName, callback) {
+  
+  
   usersData
     .find({user_name: userName},
     (error, results) => {
@@ -81,17 +84,22 @@ function addUser(userInfo) {
 }
 
 function search(itemName, callback) {
-  usersData.find( { myStuff: {$elemMatch:{ name : `/${itemName}/` } } }, 
-    (error, results) => {
-      error
-      ? callback(error, null)
-      : callback(null, results)
-    } )
+  console.log('search function invoked')
+  usersData.find({"myStuff": {"$elemMatch": { 'name': { "$regex":"speaker"} }} } , 'myStuff')
+    .exec((err, res)=>{
+      callback(err, res)
+      console.log('db find invoked', res)})
 }
 
 module.exports = {queryUser, addUser, search};
 
+// usersData.find( { myStuff: {$elemMatch:{ name : `/${itemName}/i`} } }, 
+//     (error, results) => {
+//       error
+//       ? callback(error, null)
+//       : callback(null, results)
+// //     } )
+// .exec((err, results) => callback(err, results))
+// }
 
  
-
-

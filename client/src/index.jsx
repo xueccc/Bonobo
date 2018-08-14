@@ -26,7 +26,7 @@ class App extends React.Component {
       },
       userData: userData,
       searchConditions: null,
-      searchResults: {}
+      searchResults: null
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
@@ -97,7 +97,6 @@ class App extends React.Component {
         }
       })
       .then(response => {
-        callback(null, response.data)
         this.setState({searchResults: response.data})
       })
       .catch(error => {
@@ -126,7 +125,7 @@ class App extends React.Component {
       <div>
         <Login  handleLogin={this. handleLogin} viewLogin={this.state.views.viewLogin} />
         <NavigationBar handleClick={this.handleClick} views={this.state.views}/>
-        <SearchBar viewHome={this.state.views.viewHome} userName={this.state.userData.user_name} handleSearch={this.handleSearch} searchStuff={this.searchStuff}/>
+        <SearchBar viewHome={this.state.views.viewHome} userName={this.state.userData.user_name} handleSearch={this.handleSearch} searchStuff={this.searchStuff} searchResults={this.state.searchResults} searchConditions={this.state.searchConditions}/>
         <Friends viewFriends={this.state.views.viewFriends} friends={this.state.userData.friends} />
         <Groups viewGroups={this.state.views.viewGroups} groups={this.state.userData.groups} />
         <MyStuff viewMyStuff={this.state.views.viewMyStuff} myStuff={this.state.userData.myStuff} />

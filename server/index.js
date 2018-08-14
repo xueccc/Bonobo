@@ -6,7 +6,7 @@ const dummieData = require('./../client/src/dummie_data.js');
 
 const app = express()
 app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.static(path.join(__dirname + '/../client/dist')))
 
@@ -21,11 +21,12 @@ app.get('/getUserInfo', (req, res) => {
 })
 
 app.get('/searchStuff', (req, res) => {
-  var searchCondition = req.url.split('=')
+  var searchCondition = req.url.split('=');
   DB.search(searchCondition[1], (error, result) => {
-    console.log(result);
-    res.send(result.myStuff);
+    console.log('search stuff',result);
+    res.send(result)
   })
+  
 })
 
 app.post('/', (req, res) => {
@@ -34,3 +35,7 @@ app.post('/', (req, res) => {
 })
 
 app.listen(5000, () => console.log('Server started, listening to port 5000'))
+
+// (error, result) => {
+//   console.log('search stuff',result);
+//   res.send(result.myStuff)
